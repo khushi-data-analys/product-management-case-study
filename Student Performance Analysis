@@ -1,0 +1,61 @@
+Student-Performance-Analysis/
+│
+├── data/
+│   └── StudentsPerformance.csv
+│
+├── notebook/
+│   └── student_analysis.ipynb
+│
+├── images/
+│   └── math_score_distribution.png
+│
+└── README.md
+# Import Libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load Dataset
+df = pd.read_csv("StudentsPerformance.csv")
+
+# First 5 Rows
+print(df.head())
+
+# Dataset Info
+print(df.info())
+
+# Summary Statistics
+print(df.describe())
+
+# Average Scores
+print("Average Math Score:", df['math score'].mean())
+print("Average Reading Score:", df['reading score'].mean())
+print("Average Writing Score:", df['writing score'].mean())
+
+# Histogram
+plt.figure(figsize=(8,5))
+plt.hist(df['math score'], bins=15)
+plt.title("Math Score Distribution")
+plt.xlabel("Math Score")
+plt.ylabel("Number of Students")
+plt.show()
+
+# Top 10 Students
+top_students = df.sort_values(by='math score', ascending=False).head(10)
+print(top_students[['math score','reading score','writing score']])
+# Student Performance Analysis
+
+## Objective
+Analyze student performance data using Python and Pandas.
+
+## Tools Used
+- Python
+- Pandas
+- Matplotlib
+
+## Key Insights
+- Average subject scores
+- Score distributions
+- Top-performing students
+
+## Output
+Histogram visualization of math scores and performance statistics.
